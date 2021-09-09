@@ -22,6 +22,9 @@ export function CategorySelect({
   setCategory,
   closeSelectCategory
 }: Props){
+  const handleCategorySelect = (category: Category) => {
+    setCategory(category);
+  }
   return(
     <CS.Container>
       <CS.Header>
@@ -33,7 +36,10 @@ export function CategorySelect({
         style={{flex:1, width: '100%'}}
         keyExtractor={(item)=>item.key}
         renderItem={({item})=>(
-          <CS.Category>
+          <CS.Category
+            onPress={() => handleCategorySelect(item)}
+            isActive={category.key === item.key}
+          >
             <CS.Icon name={item.icon} />
             <CS.Name>{item.name}</CS.Name>
           </CS.Category>

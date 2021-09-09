@@ -1,9 +1,10 @@
 import styled from "styled-components/native";
 import { FlatList } from "react-native";
-import {MaterialIcons} from '@expo/vector-icons';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import { MaterialIcons } from '@expo/vector-icons';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { getStatusBarHeight } from "react-native-status-bar-height";
 import { DataListProps } from ".";
+import { BorderlessButton } from "react-native-gesture-handler";
 
 export default {
   Container: styled.View`
@@ -48,6 +49,9 @@ export default {
     color: ${({theme})=>theme.colors.shape};
     font-family: ${({theme})=>theme.fonts.bold};
     margin-top: -10px;
+  `,
+  LogoutButton: styled(BorderlessButton)`
+  
   `,
   PowerIcon: styled(MaterialIcons)`
     color: ${({theme})=>theme.colors.secondary};

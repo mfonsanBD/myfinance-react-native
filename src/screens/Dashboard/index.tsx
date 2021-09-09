@@ -1,7 +1,7 @@
 import React from "react";
 import { HighlightCard } from "../../components/HighlightCard";
 import { TransactionCard, TransactionCardProps } from "../../components/TransactionCard";
-import style from './styles';
+import D from './styles';
 
 export interface DataListProps extends TransactionCardProps{
   id: string;
@@ -45,21 +45,24 @@ export function Dashboard(){
   ];
 
   return(
-    <style.Container>
-      <style.Header>
-        <style.UserWrapper>
-          <style.UserInfo>
-            <style.Photo source={{uri: 'https://avatars.githubusercontent.com/u/46286130?v=4'}} />
-            <style.User>
-              <style.UserGreeting>Olá,</style.UserGreeting>
-              <style.UserName>Mike</style.UserName>
-            </style.User>
-          </style.UserInfo>
-          <style.PowerIcon name="power-settings-new" />
-        </style.UserWrapper>
-      </style.Header>
+    <D.Container>
+      <D.Header>
+        <D.UserWrapper>
+          <D.UserInfo>
+            <D.Photo source={{uri: 'https://avatars.githubusercontent.com/u/46286130?v=4'}} />
+            <D.User>
+              <D.UserGreeting>Olá,</D.UserGreeting>
+              <D.UserName>Mike</D.UserName>
+            </D.User>
+          </D.UserInfo>
 
-      <style.HighlightCards>
+          <D.LogoutButton onPress={()=>{}}>
+            <D.PowerIcon name="power-settings-new" />
+          </D.LogoutButton>
+        </D.UserWrapper>
+      </D.Header>
+
+      <D.HighlightCards>
         <HighlightCard 
           type="up"
           title="Entrada" 
@@ -78,17 +81,17 @@ export function Dashboard(){
           amount="R$ 11.000,00" 
           lestTransaction="de 01 - 30 de Setembro"
         />
-      </style.HighlightCards>
+      </D.HighlightCards>
     
-      <style.Transactions>
-        <style.Title>Listagem</style.Title>
+      <D.Transactions>
+        <D.Title>Listagem</D.Title>
 
-        <style.TransactionList
+        <D.TransactionList
           data={data}
           keyExtractor={item=>item.id}
           renderItem={({item}) => <TransactionCard data={item} />}
         />
-      </style.Transactions>
-    </style.Container>
+      </D.Transactions>
+    </D.Container>
   )
 }

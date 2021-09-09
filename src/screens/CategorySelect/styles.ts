@@ -26,11 +26,18 @@ export default {
     color: ${({theme})=>theme.colors.shape};
     font-family: ${({theme})=>theme.fonts.regular};
   `,
-  Category: styled.View`
+  Category: styled.TouchableOpacity.attrs({
+    activeOpacity: 0.7
+  })<CategoryProps>`
     width: 100%;
     padding: ${RFValue(15)}px;
     flex-direction: row;
     align-items: center;
+    background-color: ${({isActive, theme})=>
+      isActive 
+      ? theme.colors.success_light
+      : theme.colors.background
+    };
   `,
   Icon: styled(Feather)`
     margin-right: 16px;
