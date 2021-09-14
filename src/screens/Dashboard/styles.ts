@@ -83,4 +83,9 @@ export default {
   })`
     margin-bottom: ${getStatusBarHeight()}px;
   `,
+  LoadingContainer: styled.View`
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+  `,
 }
