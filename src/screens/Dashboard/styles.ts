@@ -40,7 +40,7 @@ export default {
     margin-left: 17px;
   `,
   UserGreeting: styled.Text`
-    font-size: ${RFValue(18)}px;
+    font-size: ${RFValue(14)}px;
     color: ${({theme})=>theme.colors.shape};
     font-family: ${({theme})=>theme.fonts.regular};
   `,

@@ -4,7 +4,7 @@ import { ActivityIndicator } from "react-native";
 
 import { useTheme } from "styled-components";
 
-import { useFocusEffect } from "@react-navigation/core";
+import { useFocusEffect } from "@react-navigation/native";
 
 import { HighlightCard } from "../../components/HighlightCard";
 import { TransactionCard, TransactionCardProps } from "../../components/TransactionCard";
