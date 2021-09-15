@@ -10,6 +10,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import {useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_700Bold} from '@expo-google-fonts/poppins';
 
 import { AppRoutes } from './src/routes/app.routes';
+import { SignIn } from './src/screens/SignIn';
+import { AuthProvider } from './src/hooks/auth';
 
 import theme from './src/global/styles/theme';
 
@@ -28,7 +30,9 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <StatusBar style="light" />
       <NavigationContainer>
-        <AppRoutes/>
+        <AuthProvider>
+          <SignIn/>
+        </AuthProvider>
       </NavigationContainer>
     </ThemeProvider>
   );
