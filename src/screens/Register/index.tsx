@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Alert, Keyboard, Modal, TouchableWithoutFeedback } from "react-native";
 
 import * as Yup from 'yup';
@@ -8,6 +8,7 @@ import uuid from 'react-native-uuid';
 
 import { useForm } from "react-hook-form";
 import { useNavigation } from "@react-navigation/native";
+import { useAuth } from "../../hooks/auth";
 
 import { Button } from "../../components/Form/Button";
 import { CategorySelectButton } from "../../components/Form/CategorySelectButton";
@@ -42,6 +43,7 @@ export function Register(){
   });
   
   const navigation = useNavigation();
+  const { user } = useAuth();
 
   const {control, handleSubmit, reset, formState: {errors}} = useForm({
     resolver: yupResolver(schema)
@@ -79,8 +81,7 @@ export function Register(){
     }
     
     try {
-      const dataKey = '@gofinances:transactions';
-      
+      const dataKey = `@gofinances:transactions_user:${user.id}`;
       const data = await AsyncStorage.getItem(dataKey);
       const currentData = data ? JSON.parse(data) : [];
 

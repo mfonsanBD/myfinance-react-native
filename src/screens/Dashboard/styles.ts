@@ -13,11 +13,12 @@ export default {
   `,
   Header: styled.View`
     width: 100%;
-    height: ${RFPercentage(42)}px;
+    height: ${RFPercentage(40)}px;
     background-color: ${({theme})=>theme.colors.primary};
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
+    border-bottom-left-radius: 50px;
   `,
   UserWrapper: styled.View`
     width: 100%;
@@ -50,9 +51,7 @@ export default {
     font-family: ${({theme})=>theme.fonts.bold};
     margin-top: -10px;
   `,
-  LogoutButton: styled(BorderlessButton)`
-  
-  `,
+  LogoutButton: styled(BorderlessButton)``,
   PowerIcon: styled(MaterialIcons)`
     color: ${({theme})=>theme.colors.secondary};
     font-size: ${RFValue(24)}px;
@@ -81,7 +80,7 @@ export default {
   ).attrs({
     showsVerticalScrollIndicator: false
   })`
-    margin-bottom: ${getStatusBarHeight()}px;
+    margin-bottom: 40px;
   `,
   LoadingContainer: styled.View`
     flex: 1;

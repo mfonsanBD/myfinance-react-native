@@ -15,6 +15,7 @@ export default {
     background-color: ${({theme})=>theme.colors.primary};
     justify-content: flex-end;
     align-items: center;
+    border-bottom-left-radius: 50px;
   `,
   Title: styled.Text`
     font-size: ${RFValue(18)}px;

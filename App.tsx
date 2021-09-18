@@ -1,39 +1,37 @@
 import 'intl';
 import 'intl/locale-data/jsonp/pt-BR';
+import 'react-native-gesture-handler';
 
 import React from 'react';
 import AppLoading from 'expo-app-loading';
-import { StatusBar } from 'expo-status-bar';
 import { ThemeProvider } from 'styled-components';
-import { NavigationContainer } from '@react-navigation/native';
+
+import { Routes } from './src/routes';
 
 import {useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_700Bold} from '@expo-google-fonts/poppins';
 
-import { AppRoutes } from './src/routes/app.routes';
-import { SignIn } from './src/screens/SignIn';
-import { AuthProvider } from './src/hooks/auth';
+import { AuthProvider, useAuth } from './src/hooks/auth';
 
 import theme from './src/global/styles/theme';
 
-export default function App() {
+export default function App() {  
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
     Poppins_500Medium,
     Poppins_700Bold
   });
+  
+  const { userStorageLoading } = useAuth();
 
-  if(!fontsLoaded){
+  if(!fontsLoaded || userStorageLoading){
     return <AppLoading/>
   }
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar style="light" />
-      <NavigationContainer>
-        <AuthProvider>
-          <SignIn/>
-        </AuthProvider>
-      </NavigationContainer>
+      <AuthProvider>
+        <Routes/>
+      </AuthProvider>
     </ThemeProvider>
   );
 }

@@ -35,7 +35,7 @@ export default {
     align-items: center;
     background-color: ${({isActive, theme})=>
       isActive 
-      ? theme.colors.success_light
+      ? theme.colors.secondary_light
       : theme.colors.background
     };
   `,
